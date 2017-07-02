@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppDEBUG", "ConsoleAppDEBUG\ConsoleAppDEBUG.csproj", "{60CD3D00-A13C-458B-8D7F-162DA2BD2002}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insultdroid", "Insultdroid\Insultdroid.csproj", "{F98507E8-0830-4DBD-8605-F2B55B9FEA64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{60CD3D00-A13C-458B-8D7F-162DA2BD2002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60CD3D00-A13C-458B-8D7F-162DA2BD2002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60CD3D00-A13C-458B-8D7F-162DA2BD2002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F98507E8-0830-4DBD-8605-F2B55B9FEA64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F98507E8-0830-4DBD-8605-F2B55B9FEA64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F98507E8-0830-4DBD-8605-F2B55B9FEA64}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F98507E8-0830-4DBD-8605-F2B55B9FEA64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F98507E8-0830-4DBD-8605-F2B55B9FEA64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F98507E8-0830-4DBD-8605-F2B55B9FEA64}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

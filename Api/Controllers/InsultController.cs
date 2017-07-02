@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Data;
 using Data.Models;
 using Data.Repository;
 
