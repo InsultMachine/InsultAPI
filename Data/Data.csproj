@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Insult.cs" />
+    <Compile Include="Models\InsultVote.cs" />
     <Compile Include="Presistence\IUnitOfWork.cs" />
     <Compile Include="Presistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
