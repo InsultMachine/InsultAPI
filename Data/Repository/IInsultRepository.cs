@@ -1,15 +1,16 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using Data.Models;
 
 namespace Data.Repository
 {
     public interface IInsultRepository
     {
-        void Add(Insult insult);
-        void DecRating(int id);
-        void Delete(Insult insult);
+        Task<Insult> Add(Insult insult);
+        Task<Insult> DecRating(int id);
+        Task<Insult> Delete(Insult insult);
         Insult FindById(int id);
         IQueryable<Insult> GetAll();
-        void IncRating(int id);
+        Task<Insult> IncRating(int id);
     }
 }

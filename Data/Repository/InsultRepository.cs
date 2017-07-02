@@ -1,5 +1,5 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Data.Models;
 
 namespace Data.Repository
@@ -7,6 +7,7 @@ namespace Data.Repository
     public class InsultRepository : IInsultRepository
     {
         private readonly InsultContext _applicationContext;
+
         public InsultRepository(InsultContext applicationContext)
         {
             _applicationContext = applicationContext;
@@ -22,30 +23,34 @@ namespace Data.Repository
             return _applicationContext.Insults.FirstOrDefault(t => t.InsultId == id);
         }
 
-        public void Add(Insult insult)
+        public Task<Insult> Add(Insult insult)
         {
             _applicationContext.Insults.Add(insult);
             SaveChanges();
+            return Task.FromResult(new Insult());
         }
 
-        public void Delete(Insult insult)
+        public Task<Insult> Delete(Insult insult)
         {
             _applicationContext.Insults.Remove(insult);
             SaveChanges();
+            return Task.FromResult(new Insult());
         }
 
-        public void IncRating(int id)
+        public Task<Insult> IncRating(int id)
         {
             var insult = FindById(id);
             insult.Rating++;
             SaveChanges();
+            return Task.FromResult(new Insult());
         }
 
-        public void DecRating(int id)
+        public Task<Insult> DecRating(int id)
         {
             var insult = FindById(id);
             insult.Rating--;
             SaveChanges();
+            return Task.FromResult(new Insult());
         }
 
         private void SaveChanges()

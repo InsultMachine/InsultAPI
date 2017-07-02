@@ -1,3 +1,5 @@
+using Data.Repository;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Api.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Api.App_Start.NinjectWebCommon), "Stop")]
 
@@ -11,7 +13,6 @@ namespace Api.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Extensions.Conventions;
-   
 
     public static class NinjectWebCommon 
     {
@@ -46,8 +47,8 @@ namespace Api.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+
                 RegisterServices(kernel);
-                kernel.Bind(r => r.FromThisAssembly().SelectAllClasses().BindDefaultInterface());
                 return kernel;
             }
             catch
@@ -63,8 +64,7 @@ namespace Api.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //kernel.Bind<IInsultController>().To<InsultController>().WhenInjectedInto(typeof(InsultController));
-            //kernel.Bind<IInsultRepository>().To<InsultRepository>().WhenInjectedInto(typeof(InsultController));
+            kernel.Bind<IInsultRepository>().To<InsultRepository>();
         }        
     }
 }
