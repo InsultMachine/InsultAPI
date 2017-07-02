@@ -7,6 +7,7 @@ namespace Data.Repository
     public class InsultRepository : IInsultRepository
     {
         private readonly InsultContext _applicationContext;
+        
 
         public InsultRepository(InsultContext applicationContext)
         {
@@ -26,14 +27,12 @@ namespace Data.Repository
         public Task<Insult> Add(Insult insult)
         {
             _applicationContext.Insults.Add(insult);
-            SaveChanges();
             return Task.FromResult(new Insult());
         }
 
         public Task<Insult> Delete(Insult insult)
         {
             _applicationContext.Insults.Remove(insult);
-            SaveChanges();
             return Task.FromResult(new Insult());
         }
 
@@ -41,7 +40,6 @@ namespace Data.Repository
         {
             var insult = FindById(id);
             insult.Rating++;
-            SaveChanges();
             return Task.FromResult(new Insult());
         }
 
@@ -49,13 +47,7 @@ namespace Data.Repository
         {
             var insult = FindById(id);
             insult.Rating--;
-            SaveChanges();
             return Task.FromResult(new Insult());
-        }
-
-        private void SaveChanges()
-        {
-            _applicationContext.SaveChanges();
         }
     }
 }
