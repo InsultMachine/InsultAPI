@@ -76,6 +76,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Insult.cs" />
+    <Compile Include="Presistence\IUnitOfWork.cs" />
+    <Compile Include="Presistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IInsultRepository.cs" />
     <Compile Include="Repository\InsultRepository.cs" />

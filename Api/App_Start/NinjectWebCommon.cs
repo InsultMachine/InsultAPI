@@ -1,3 +1,4 @@
+using Data.Presistence;
 using Data.Repository;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Api.App_Start.NinjectWebCommon), "Start")]
@@ -65,6 +66,7 @@ namespace Api.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IInsultRepository>().To<InsultRepository>();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
         }        
     }
 }
