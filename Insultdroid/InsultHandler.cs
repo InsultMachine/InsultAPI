@@ -1,15 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Org.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Insultdroid
 {
@@ -17,11 +7,15 @@ namespace Insultdroid
     //  parses strings into jsons, etc
     public class InsultHandler
     {
-        public static async Task<JSONObject> GetAll()
+        public static async Task<string> GetAll()
         {
             var allInsultsString = await ApiProxy.SendGetAllRequest();
             // TODO
-            return null;
+
+            JObject json = JObject.Parse(allInsultsString);
+
+
+            return allInsultsString;
         }
     }
 }
