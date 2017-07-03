@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+using Org.Json;
 
 namespace Insultdroid
 {
@@ -7,15 +7,13 @@ namespace Insultdroid
     //  parses strings into jsons, etc
     public class InsultHandler
     {
-        public static async Task<string> GetAll()
+        public static async Task<JSONArray> GetAll()
         {
             var allInsultsString = await ApiProxy.SendGetAllRequest();
-            // TODO
+            
+            var json = new JSONArray(allInsultsString);
 
-            JObject json = JObject.Parse(allInsultsString);
-
-
-            return allInsultsString;
+            return json;
         }
     }
 }
