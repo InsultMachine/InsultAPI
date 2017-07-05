@@ -1,5 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+
+using Mobile.Models;
+using Newtonsoft.Json;
 
 namespace App1
 {
@@ -7,20 +11,18 @@ namespace App1
     //  parses strings into jsons, etc
     public class InsultHandler
     {
-        private ApiProxy _apiProxy;
+        private readonly ApiProxy _apiProxy;
 
         public InsultHandler(ApiProxy apiProxy)
         {
             _apiProxy = apiProxy;
         }
 
-        public async Task<JObject> GetAll()
+        public List<Insult> GetAll()
         {
             var jsonString = Task.Run(async () => await _apiProxy.SendGetAllRequest()).Result;
-            var responceObj = jsonString;
-            var resultObj = responceObj;
-            var jsonObj = JObject.Parse(resultObj);
-            return jsonObj;
+            var res = JsonConvert.DeserializeObject<List<Insult>>(jsonString);
+            return res;
         }
     }
 }

@@ -38,6 +38,8 @@
     <Compile Include="ApiProxy.cs" />
     <Compile Include="App.cs" />
     <Compile Include="InsultHandler.cs" />
+    <Compile Include="Model\Insult.cs" />
+    <Compile Include="Model\InsultVote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

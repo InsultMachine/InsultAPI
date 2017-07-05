@@ -9,32 +9,35 @@ namespace App1
 {
     public class App : Application
     {
-
         public App()
         {
             ApiProxy apiProxy = new ApiProxy();
             InsultHandler insultHandler = new InsultHandler(apiProxy);
-            var test = insultHandler.GetAll().ToString();
+            var allInsults = insultHandler.GetAll();
+
+            ListView listView = new ListView()
+            {
+                ItemsSource = allInsults,
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    Label insultText = new Label();
+                    insultText.SetBinding(Label.TextProperty, "Text");
+                    return new ViewCell
+                    {
+                        View = new StackLayout
+                        {
+                            Children =
+                            {
+                                insultText
+                            }
+                        }
+                    };
+                })
+            };
 
             MainPage = new ContentPage
             {
-                Content = new TableView
-                {
-                    Intent = TableIntent.Form,
-                    Root = new TableRoot("Insults") {
-                    new TableSection ("Insults") {
-                        new TextCell {
-                            Text = "",
-                            Detail = "TextCell Detail"
-                        },
-                        new EntryCell {
-                            Label = "EntryCell:",
-                            Placeholder = "default keyboard",
-                            Keyboard = Keyboard.Default
-                        }
-                    }
-                }
-                }
+                Content = listView
             };
         }
 
